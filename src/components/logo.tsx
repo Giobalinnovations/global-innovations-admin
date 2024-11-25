@@ -5,11 +5,16 @@ import Link from 'next/link';
 import logo from '../../public/images/brand/logo.webp';
 export default function Logo({ className }: { className?: string }) {
   return (
-    <Link href="/" className={cn('relative overflow-hidden w-40', className)}>
+    <Link
+      href="/"
+      className={cn('relative overflow-hidden w-40 h-10', className)}
+    >
       <Image
-        alt="adcrest media logo"
+        alt="global innovation media logo"
         src={logo}
-        className={cn('object-cover w-36', className)}
+        width={40}
+        height={30}
+        className={cn('object-cover', className)}
         priority
       />
     </Link>
