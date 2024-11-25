@@ -1,12 +1,10 @@
 import DashboardSidebar from './components/dashboard-sidebar';
 import DashboardHeader from './components/dashboard-header';
-import { Toaster } from '@/components/ui/toaster';
 import { Metadata } from 'next';
-import ReactQueryProvider from '@/components/ReactQueryProvider';
 
 export const metadata: Metadata = {
-  title: 'Adcrest media Dashboard',
-  description: 'Adcrest media Dashboard',
+  title: 'Global Innovation media Dashboard',
+  description: 'Global Innovation media Dashboard',
 };
 
 export default function RootLayout({

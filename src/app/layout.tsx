@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Adcrest media admin',
-  description: 'Adcrest media admin',
+  title: 'Global Innovation media admin',
+  description: 'Global Innovation media admin',
   robots: {
     index: false,
     googleBot: {
