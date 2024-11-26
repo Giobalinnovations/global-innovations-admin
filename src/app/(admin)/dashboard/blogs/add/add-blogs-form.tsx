@@ -29,6 +29,7 @@ import CategoryList from '../../components/category-list';
 import { slugConverter } from '@/lib/slugConverter';
 import Tiptap from '@/components/tipTap/Tiptap';
 import OptionalText from '../../components/optional-text';
+import { MinimalTiptapEditor } from '@/components/minimal-tiptap';
 
 const formSchema = z.object({
   category: z.string().min(1, { message: `category can't be empty` }),
@@ -271,7 +272,8 @@ export default function AddBlogsForm() {
             )}
           />
 
-          <FormField
+          {/* old content editor */}
+          {/* <FormField
             control={form.control}
             name="content"
             render={({ field }) => (
@@ -283,7 +285,6 @@ export default function AddBlogsForm() {
                     <FormLabel>Content</FormLabel>
                     <FormControl>
                       <Tiptap {...field} />
-                      {/* <Tiptap /> */}
                     </FormControl>
 
                     <FormMessage />
@@ -291,7 +292,33 @@ export default function AddBlogsForm() {
                 )}
               />
             )}
+          /> */}
+
+          {/* new content editor */}
+          <FormField
+            control={form.control}
+            name="content"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Content</FormLabel>
+                <FormControl>
+                  <MinimalTiptapEditor
+                    value={field.value}
+                    onChange={field.onChange}
+                    className="w-full"
+                    editorContentClassName="p-5"
+                    output="html"
+                    placeholder="Type your content here..."
+                    autofocus={true}
+                    editable={true}
+                    editorClassName="focus:outline-none"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
+
           <FormField
             control={form.control}
             name="slug"

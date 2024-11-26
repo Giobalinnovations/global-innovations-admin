@@ -32,6 +32,7 @@ import FileUploadMain from '../../../components/file-upload-main';
 import { BlogsType } from '@/lib/type';
 import useUpdate from '@/hooks/useUpdatePatchVisa';
 import OptionalText from '../../../components/optional-text';
+import { MinimalTiptapEditor } from '@/components/minimal-tiptap';
 
 const formSchema = z.object({
   category: z.string().min(1, { message: `category can't be empty` }),
@@ -291,24 +292,11 @@ export default function UpdateBlogsForm({
             )}
           />
 
-          <FormField
+          {/* old content editor */}
+          {/* <FormField
             control={form.control}
             name="content"
             render={({ field }) => (
-              // old tip tap
-              // <FormItem>
-              //   <FormLabel>Content</FormLabel>
-              //   <FormControl>
-
-              //     <TipTap {...field} />
-
-              //   </FormControl>
-
-              //   <FormMessage />
-              // </FormItem>
-
-              // new tip tap
-
               <FormField
                 control={form.control}
                 name="content"
@@ -317,13 +305,37 @@ export default function UpdateBlogsForm({
                     <FormLabel>Content</FormLabel>
                     <FormControl>
                       <Tiptap {...field} />
-                      {/* <Tiptap /> */}
                     </FormControl>
 
                     <FormMessage />
                   </FormItem>
                 )}
               />
+            )}
+          /> */}
+
+          {/* new content editor */}
+          <FormField
+            control={form.control}
+            name="content"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Content</FormLabel>
+                <FormControl>
+                  <MinimalTiptapEditor
+                    value={field.value}
+                    onChange={field.onChange}
+                    className="w-full"
+                    editorContentClassName="p-5"
+                    output="html"
+                    placeholder="Type your content here..."
+                    autofocus={true}
+                    editable={true}
+                    editorClassName="focus:outline-none"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
             )}
           />
           <FormField
