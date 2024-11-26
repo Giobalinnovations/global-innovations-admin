@@ -26,7 +26,6 @@ import apiEndpoint from '@/services/apiEndpoint';
 import { Loader2, Trash2 } from 'lucide-react';
 
 import { slugConverter } from '@/lib/slugConverter';
-import Tiptap from '@/components/tipTap/Tiptap';
 
 import FileUploadMain from '../../../components/file-upload-main';
 import { BlogsType } from '@/lib/type';

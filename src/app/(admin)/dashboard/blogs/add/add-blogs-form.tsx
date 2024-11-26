@@ -27,7 +27,6 @@ import apiEndpoint from '@/services/apiEndpoint';
 import { Loader2, Trash2 } from 'lucide-react';
 import CategoryList from '../../components/category-list';
 import { slugConverter } from '@/lib/slugConverter';
-import Tiptap from '@/components/tipTap/Tiptap';
 import OptionalText from '../../components/optional-text';
 import { MinimalTiptapEditor } from '@/components/minimal-tiptap';
 
