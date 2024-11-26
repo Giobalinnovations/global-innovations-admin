@@ -24,7 +24,7 @@ import { Input } from '@/components/ui/input';
 import FileUploadMain from '../../components/file-upload-main';
 import usePost from '@/hooks/usePost';
 import apiEndpoint from '@/services/apiEndpoint';
-import { Loader2, Trash2 } from 'lucide-react';
+import { Loader2, Trash2, Wand2 } from 'lucide-react';
 import CategoryList from '../../components/category-list';
 import { slugConverter } from '@/lib/slugConverter';
 import OptionalText from '../../components/optional-text';
@@ -324,17 +324,33 @@ export default function AddBlogsForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Slug</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="slug..."
-                    {...field}
-                    onChange={event =>
-                      field.onChange(
-                        slugConverter(event.target.value.toLowerCase())
-                      )
-                    }
-                  />
-                </FormControl>
+                <div className="flex gap-2">
+                  <FormControl>
+                    <Input
+                      placeholder="slug..."
+                      {...field}
+                      onChange={event =>
+                        field.onChange(
+                          slugConverter(event.target.value.toLowerCase())
+                        )
+                      }
+                    />
+                  </FormControl>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="icon"
+                    onClick={() => {
+                      const title = form.getValues('title');
+                      if (title) {
+                        field.onChange(slugConverter(title));
+                      }
+                    }}
+                    title="Generate slug from title"
+                  >
+                    <Wand2 className="h-4 w-4" />
+                  </Button>
+                </div>
                 <FormMessage />
               </FormItem>
             )}
