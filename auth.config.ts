@@ -29,7 +29,8 @@ export default {
             return user;
           }
         }
-        console.log('step 6 current');
+        //
+        // console.log('step 6 current');`
         return null;
       },
     }),
